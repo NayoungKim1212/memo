@@ -34,7 +34,7 @@ public class MemoService { // memoService라는 이름으로 등록이 됨
     public List<MemoResponseDto> getMemos() {
         // DB 조회
 
-        return memoRepository.findAll().stream().map(MemoResponseDto::new).toList();
+        return memoRepository.findAllByOrderByModifiedAtDesc().stream().map(MemoResponseDto::new).toList();
     }
     @Transactional
     public Long updateMemo(Long id, MemoRequestDto requestDto) {
